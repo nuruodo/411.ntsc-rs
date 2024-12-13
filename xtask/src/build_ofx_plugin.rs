@@ -80,7 +80,7 @@ fn get_info_plist() -> plist::Value {
     );
     info_plist_contents.insert(
         "CFBundleIdentifier".to_string(),
-        plist::Value::from("rs.ntsc.openfx"),
+        plist::Value::from("411.VHS.openfx"),
     );
     info_plist_contents.insert("CFBundleVersion".to_string(), plist::Value::from(version));
     info_plist_contents.insert(
@@ -146,7 +146,7 @@ pub fn main(args: &clap::ArgMatches) -> Result<(), Box<dyn Error>> {
         let aarch64_path = build_plugin_for_target(aarch64_target, release_mode)?;
 
         let dst_path = std::env::temp_dir().plus(format!(
-            "ntsc-rs-ofx-{}",
+            "411.VHS-ofx-{}",
             std::time::SystemTime::now()
                 .duration_since(std::time::UNIX_EPOCH)
                 .unwrap()
@@ -191,8 +191,8 @@ pub fn main(args: &clap::ArgMatches) -> Result<(), Box<dyn Error>> {
 
     let output_dir = args.get_one::<PathBuf>("destdir").unwrap();
 
-    let plugin_bundle_path = output_dir.plus_iter(["NtscRs.ofx.bundle", "Contents"]);
-    let plugin_bin_path = plugin_bundle_path.plus_iter([ofx_architecture, "NtscRs.ofx"]);
+    let plugin_bundle_path = output_dir.plus_iter(["411.VHS.ofx.bundle", "Contents"]);
+    let plugin_bin_path = plugin_bundle_path.plus_iter([ofx_architecture, "411.VHS.ofx"]);
 
     fs::create_dir_all(plugin_bin_path.parent().unwrap())?;
     fs::copy(built_library_path, plugin_bin_path)?;

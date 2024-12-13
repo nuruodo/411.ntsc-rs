@@ -104,7 +104,7 @@ pub fn main(args: &clap::ArgMatches) -> Result<(), Box<dyn Error>> {
     let release_mode = args.get_flag("release");
 
     let build_dir_path = args.get_one::<PathBuf>("destdir").unwrap();
-    let plugin_dir_path = build_dir_path.plus("ntsc-rs.plugin");
+    let plugin_dir_path = build_dir_path.plus("411.VHS.plugin");
 
     // Clean up the previous build. If there is no previous build, this will fail; that's OK.
     let _ = fs::remove_dir_all(&plugin_dir_path);
@@ -177,8 +177,8 @@ pub fn main(args: &clap::ArgMatches) -> Result<(), Box<dyn Error>> {
         build_plugin_for_target(target, release_mode)?
     };
 
-    fs::copy(built_library_path, macos_dir_path.plus("ntsc-rs"))?;
-    fs::copy(built_rsrc_path, resources_dir_path.plus("ntsc-rs.rsrc"))?;
+    fs::copy(built_library_path, macos_dir_path.plus("411.VHS"))?;
+    fs::copy(built_rsrc_path, resources_dir_path.plus("411.VHS.rsrc"))?;
 
     Ok(())
 }

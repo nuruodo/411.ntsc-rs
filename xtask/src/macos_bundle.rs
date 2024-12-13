@@ -150,13 +150,13 @@ pub fn main(args: &clap::ArgMatches) -> Result<(), Box<dyn Error>> {
     );
     info_plist_contents.insert(
         "NSHumanReadableCopyright".to_string(),
-        plist::Value::from("© 2023-2024 valadaptive"),
+        plist::Value::from("© 2023-2024 411"),
     );
     info_plist_contents.insert("CFBundleSignature".to_string(), plist::Value::from("????"));
 
     let build_dir_path = args.get_one::<PathBuf>("destdir").unwrap();
-    let app_dir_path = build_dir_path.plus("ntsc-rs.app");
-    let iconset_dir_path = build_dir_path.plus("ntsc-rs.iconset");
+    let app_dir_path = build_dir_path.plus("411.VHS.app");
+    let iconset_dir_path = build_dir_path.plus("411.vhs.iconset");
 
     // Clean up the previous build. If there is no previous build, this will fail; that's OK.
     let _ = fs::remove_dir_all(&app_dir_path);
@@ -174,7 +174,7 @@ pub fn main(args: &clap::ArgMatches) -> Result<(), Box<dyn Error>> {
     plist::Value::Dictionary(info_plist_contents)
         .to_file_xml(contents_dir_path.plus("Info.plist"))?;
 
-    let app_executables = ["ntsc-rs-standalone", "ntsc-rs-cli"];
+    let app_executables = ["411.VHS-standalone", "411.VHS-cli"];
 
     for binary_name in app_executables {
         println!("Creating universal binary ({binary_name})...");

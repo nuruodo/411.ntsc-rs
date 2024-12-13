@@ -11,7 +11,7 @@ fn main() {
         use pipl::*;
         pipl::plugin_build(vec![
             Property::Kind(PIPLType::AEEffect),
-            Property::Name("NTSC-rs"),
+            Property::Name("411.VHS"),
             Property::Category("Stylize"),
 
             #[cfg(target_os = "windows")]
@@ -44,9 +44,9 @@ fn main() {
                 OutFlags2::SupportsThreadedRendering |
                 OutFlags2::SupportsGetFlattenedSequenceData
             ),
-            Property::AE_Effect_Match_Name("ntsc-rs"),
+            Property::AE_Effect_Match_Name("411.VHS"),
             Property::AE_Reserved_Info(8),
-            Property::AE_Effect_Support_URL("https://ntsc.rs/docs/after-effects-plugin/"),
+            Property::AE_Effect_Support_URL("https://scenepacks.com/"),
         ]);
         println!("cargo:rustc-env=EFFECT_VERSION_MAJOR={EFFECT_VERSION_MAJOR}");
         println!("cargo:rustc-env=EFFECT_VERSION_MINOR={EFFECT_VERSION_MINOR}");
